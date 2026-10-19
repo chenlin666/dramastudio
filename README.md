@@ -30,4 +30,4 @@ dramastudio/
 - 提交图片/视频前先调用 `estimate_generation`，向用户展示模型、提示词、参数与预估积分，取得**该次提交的明确同意**；随后使用不高于批准额度的 `maxCredits` 和该次请求稳定的 `idempotencyKey`。`maxCredits` 不是人工确认。
 - 新 Key 默认预算最高 5,000 credits/UTC 日；所有 Key 共用用户级 5,000 credits/日上限，并受账户余额、单 Key 预算及限速约束。持有 `generate` Key 的客户端在限额内可直接提交付费任务，服务端不会逐次弹窗确认。
 
-具体工具与示例见 [`dramastudio/SKILL.md`](dramastudio/SKILL.md) 和 [`dramastudio/references/connection.md`](dramastudio/references/connection.md)。对外发布新版本时，请与站点内 `/skills/dramastudio/` 的静态副本保持一致。
+具体工具与示例见 [`dramastudio/SKILL.md`](dramastudio/SKILL.md) 和 [`dramastudio/references/connection.md`](dramastudio/references/connection.md)。
