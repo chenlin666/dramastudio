@@ -1,0 +1,5 @@
+# Never publish local credentials or operating-system metadata.
+.env
+.env.*
+!.env.example
+.DS_Store

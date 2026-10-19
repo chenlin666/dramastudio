@@ -8,7 +8,7 @@
 | Has a trusted local shell with Node.js 22+, but lacks native compatible MCP | Use `../scripts/mcp-client.mjs` to send MCP JSON-RPC requests. Install this entire Skill directory so the script is available. |
 | Only a browser/chat interface without MCP/HTTP tools, private credential input, or a shell | Cannot self-install or make authenticated calls. Tell the user which capability is missing. GitHub availability alone does not change this. |
 
-The user signs in at `https://dramastudio.dexiao.ai/settings/api-keys` and creates a **user API Key** there. No separate CLI/browser login, OAuth token exchange, package registry listing, or additional deployment is required. The official `/settings/api-keys/guide` displays the MCP URL for that site. The service is stateless; every request needs the Key. Do not use a different endpoint, hostname, or third-party proxy without the user's verification.
+The user signs in at `https://dramastudio.dexiao.ai/settings/api-keys` and creates a **user API Key** there. No separate CLI/browser login, OAuth token exchange, package registry listing, or standalone MCP deployment is required; the DramaStudio site must deploy its Key/MCP feature first. The official `/settings/api-keys/guide` displays the MCP URL for that site. The service is stateless; every request needs the Key. Do not use a different endpoint, hostname, or third-party proxy without the user's verification.
 
 ## Native MCP hosts
 
