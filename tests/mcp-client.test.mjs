@@ -47,6 +47,14 @@ describe("public DramaStudio Agent Skill", () => {
     assert.match(readme, /dramastudio\/references\/connection\.md/);
     assert.match(readme, /node --test tests\/mcp-client\.test\.mjs/);
     assert.match(skill, /^---\nname: dramastudio\ndescription: /);
+    const description = skill.match(/^description: (.+)$/m)?.[1];
+    assert.ok(description && description.length < 700, "Skill 描述应简短并包含创作场景触发词");
+    for (const phrase of ["AI images", "short dramas", "storyboard frames", "image-guided video", "without naming DramaStudio", "MCP", "explicit approval"]) {
+      assert.ok(description.includes(phrase), `Skill 描述缺少创作触发词或授权边界：${phrase}`);
+    }
+    assert.match(skill, /## Create visual stories and short-drama shot assets/);
+    assert.match(skill, /cannot automatically arrange them on the canvas, assemble clips, export a finished short drama/);
+    assert.match(readme, /辅助短剧与视觉内容创作/);
     assert.match(skill, /https:\/\/github\.com\/chenlin666\/dramastudio/);
     for (const path of ["references/connection.md", "scripts/mcp-client.mjs"]) {
       assert.ok(skill.includes(path), `Skill 缺少 ${path}`);
