@@ -1,0 +1,10 @@
+{
+  "name": "dramastudio-external-skill",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DramaStudio external MCP Skill. GitHub is the single source of truth; local installs are caches.",
+  "keywords": ["pi-package"],
+  "pi": {
+    "skills": ["./dramastudio"]
+  }
+}
