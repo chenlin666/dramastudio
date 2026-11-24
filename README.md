@@ -11,9 +11,14 @@ dramastudio/
 ├── SKILL.md                  # Agent Skills 入口与安全操作流程
 ├── references/connection.md # MCP 工具、连接方式及客户端示例
 └── scripts/mcp-client.mjs    # 无额外依赖的 Node.js 22+ 本地回退脚本
+scripts/refresh-skill.mjs     # 从 GitHub main 校验并刷新本地 Skill 副本
+package.json                  # Pi git Package 声明（pi.skills → dramastudio/）
+UPDATE.md                     # 安装后如何持续获取 GitHub 新版本
 ```
 
 **请安装整个 `dramastudio/` 目录，而不只是 `SKILL.md`；仓库根目录不是 Skill 目录。**安装前先审查全部三个文件，按你的 Agent 宿主文档放入用户级 Skills 目录。纯聊天环境或不允许安装工具的宿主不能仅凭粘贴 Skill 获得执行能力。
+
+**保持更新**：GitHub 是本 Skill 的唯一源，本地安装只算缓存，不要手改已安装文件。Pi 用户可直接 `pi install git:github.com/chenlin666/dramastudio`（默认分支，不 pin tag/commit），发布后运行 `pi update --extensions`；想每次启动都重新拉取可用 `pi -e git:github.com/chenlin666/dramastudio`。其它有可信 Shell 的宿主可在每次使用前运行 `node dramastudio/scripts/refresh-skill.mjs`，脚本从 `main` 拉取三份规范文件、全部校验通过后才原子替换本地副本，不需要 API Key；`--check` 只检查差异。完整说明见 [UPDATE.md](UPDATE.md)。
 
 ## 测试
 
